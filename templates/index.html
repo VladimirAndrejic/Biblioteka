@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Početna{% endblock %}{% block crumb %}Početna{% endblock %}
+{% block content %}<div class="head"><div><h1>Početna</h1><p class="sub">Pregled trenutnog stanja biblioteke.</p></div><a class="btn" href="{{ url_for('loans_page') }}">＋ Nova pozajmica</a></div>
+<div class="metrics">
+<div class="metric"><label>Naslovi u fondu</label><strong>{{ book_count }}</strong><small>Različitih knjiga</small></div>
+<div class="metric"><label>Ukupno primeraka</label><strong>{{ copies_count }}</strong><small>Primeraka u fondu</small></div>
+<div class="metric"><label>Članovi</label><strong>{{ member_count }}</strong><small>Registrovanih članova</small></div>
+<div class="metric"><label>Aktivne pozajmice</label><strong>{{ active_count }}</strong><small>{% if overdue_count %}<span style="color:#a83232">{{ overdue_count }} sa isteklim rokom</span>{% else %}Sve u redu{% endif %}</small></div>
+</div>
+<div class="columns"><section class="panel"><div class="panelhead"><div><h2>Trenutno izdate knjige</h2><p>Knjige koje još nisu vraćene.</p></div><a class="btn secondary small" href="{{ url_for('loans_page') }}">Sve pozajmice</a></div>
+{% if recent %}<div class="tablewrap"><table><thead><tr><th>Knjiga i član</th><th>Izdato</th><th>Rok vraćanja</th><th>Status</th></tr></thead><tbody>{% for l in recent %}<tr><td><span class="strong">{{ l.title }}</span><span class="smalltext">{{ l.name }}</span></td><td>{{ l.loan_date }}</td><td>{{ l.due_date }}</td><td>{% if l.overdue %}<span class="badge danger">Kasni</span>{% else %}<span class="badge">Izdato</span>{% endif %}</td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="empty">Trenutno nema aktivnih pozajmica.</div>{% endif %}</section>
+<section class="panel"><div class="panelhead"><div><h2>Brze opcije</h2><p>Najčešće korišćene stranice.</p></div></div><p><a class="btn secondary" href="{{ url_for('books_page') }}">＋ Dodaj knjigu</a></p><p><a class="btn secondary" href="{{ url_for('members_page') }}">＋ Dodaj člana</a></p><p><a class="btn secondary" href="{{ url_for('reports') }}">Pogledaj izveštaje</a></p></section></div>{% endblock %}

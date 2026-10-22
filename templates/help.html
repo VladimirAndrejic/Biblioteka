@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}Uputstvo{% endblock %}{% block crumb %}Uputstvo{% endblock %}
+{% block content %}<div class="head"><div><h1>Uputstvo za korišćenje</h1><p class="sub">Osnovni koraci za rad u aplikaciji.</p></div></div>
+<section class="panel"><h2>Dodavanje knjige</h2><p>Otvorite „Knjige“, unesite naslov i autora, odredite broj primeraka i sačuvajte zapis.</p></section>
+<section class="panel"><h2>Dodavanje člana</h2><p>U odeljku „Članovi“ unesite ime i prezime i imejl adresu. Imejl adresa mora biti jedinstvena.</p></section>
+<section class="panel"><h2>Izdavanje knjige</h2><p>U odeljku „Pozajmice“ izaberite knjigu, člana i datum vraćanja. Knjiga ne može biti izdata ako nema slobodnih primeraka.</p></section>
+<section class="panel"><h2>Vraćanje knjige</h2><p>Pronađite aktivnu pozajmicu i izaberite „Vrati knjigu“. Aplikacija pamti datum vraćanja i oslobađa primerak.</p></section>
+<section class="panel"><h2>Izveštaji</h2><p>Na stranici „Izveštaji“ možete pregledati broj pozajmica i preuzeti CSV fajl koji se otvara u Excel-u.</p></section>{% endblock %}

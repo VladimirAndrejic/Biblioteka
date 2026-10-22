@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block title %}Greška {{ code }}{% endblock %}{% block content %}<section class="panel"><div class="empty"><h1>{{ code }}</h1><p>{{ message }}</p><a class="btn" href="{{ url_for('index') }}">Nazad na početnu</a></div></section>{% endblock %}
